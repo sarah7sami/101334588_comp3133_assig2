@@ -1,20 +1,40 @@
-<table>
-    <thead>
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        <th>Gender</th>
-        <th>Salary</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let employee of employees">
-        <td>{{ employee.first_name }}</td>
-        <td>{{ employee.last_name }}</td>
-        <td>{{ employee.email }}</td>
-        <td>{{ employee.gender }}</td>
-        <td>{{ employee.salary }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container-fluid">
+    <div class="row mt-4">
+      <div class="col">
+        <h2>Employee List</h2>
+      </div>
+      <div class="col text-end">
+        <button class="btn btn-primary" routerLink="/add-employee">Add New Employee</button>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Gender</th>
+              <th>Salary</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let employee of employees">
+              <td><a [routerLink]="['/employee-details', employee._id]">{{employee.first_name}}</a></td>
+              <td>{{employee.last_name}}</td>
+              <td>{{employee.email}}</td>
+              <td>{{employee.gender}}</td>
+              <td>{{employee.salary | currency:'CAD':true}}</td>
+              <td>
+                <button class="btn btn-sm btn-danger me-2" (click)="deleteEmployee(employee._id)">Delete</button>
+                <button class="btn btn-sm btn-warning" [routerLink]="['/edit-employee', employee._id]">Edit</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
