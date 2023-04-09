@@ -44,7 +44,7 @@ export class SignupComponent {
     }).subscribe((response: any) => {
       if (response.data && response.data.signup.status && response.data.signup.message === "User registered successfully") {
         localStorage.setItem('user', JSON.stringify(response.data.signup.user));
-        //this.router.navigate(['/employees']);
+        this.router.navigate(['/employees']);
       } else {
         console.log(response);
         this.errorMessage = response.errors[0].message;

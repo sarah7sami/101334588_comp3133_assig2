@@ -1,1 +1,20 @@
-<p>employee-list works!</p>
+<table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.first_name }}</td>
+        <td>{{ employee.last_name }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.gender }}</td>
+        <td>{{ employee.salary }}</td>
+      </tr>
+    </tbody>
+  </table>

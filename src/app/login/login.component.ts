@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
       if (loginResponse.status) {
         console.log(loginResponse.message)
         localStorage.setItem('currentUser', JSON.stringify(loginResponse.user));
-        // this.router.navigate(['/employees']);
+        this.router.navigate(['/employees']);
       }
     }, (error) => {
       this.errorMessage = error.message;
