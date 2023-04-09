@@ -49,13 +49,16 @@ export class LoginComponent implements OnInit {
       }
     } as any).valueChanges.subscribe(({data}) => {
       const loginResponse = data.login;
+      console.log('loginResponse: ', loginResponse);
   
       if (loginResponse.status) {
+        console.log(loginResponse.message)
         localStorage.setItem('currentUser', JSON.stringify(loginResponse.user));
-        this.router.navigate(['/dashboard']);
-      } else {
-        this.errorMessage = loginResponse.message;
+        // this.router.navigate(['/employees']);
       }
+    }, (error) => {
+      this.errorMessage = error.message;
     });
-  }  
+  }
+  
 }
