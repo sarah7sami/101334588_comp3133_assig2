@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Apollo, gql } from 'apollo-angular'; // updated import and added gql here
+import { Apollo, gql } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -19,6 +19,7 @@ export class EmployeeListComponent implements OnInit {
         query: gql`
           query {
             employees {
+              id
               first_name
               last_name
               email
@@ -41,17 +42,25 @@ export class EmployeeListComponent implements OnInit {
       this.apollo
         .mutate<any>({
           mutation: gql`
-            mutation {
-              deleteEmployee(id: "${id}") {
-                id
+            mutation deleteEmployee($id: ID!) {
+              deleteEmployee(id: $id) {
+                status
+                message
               }
             }
           `,
+          variables: {
+            id: id
+          }
         })
         .subscribe(({ data }) => {
-          this.employees = this.employees.filter((employee) => employee._id !== id);
-          console.log("Employee deleted successfully", data);
+          if (data.deleteEmployee.status) {
+            this.employees = this.employees.filter((employee) => employee.id !== id);
+            console.log(data.deleteEmployee.message);
+          } else {
+            console.log(data.deleteEmployee.message);
+          }
         });
     }
-  }
+  }  
 }
