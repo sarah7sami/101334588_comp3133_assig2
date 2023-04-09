@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
+  errorMessage: string;
   username: string;
   email: string;
   password: string;
@@ -16,6 +17,7 @@ export class SignupComponent {
     this.username = '';
     this.password = '';
     this.email = '';
+    this.errorMessage = '';
   }
 
   onSubmit(): void {
@@ -24,7 +26,7 @@ export class SignupComponent {
       email: this.email,
       password: this.password
     };
-    this.http.post('https://sarah.warptower.outerwilds.net/', {
+    this.http.post('https://sarah.warptower.outerwilds.net/graphql', {
       query: `
         mutation Signup($username: String!, $email: String!, $password: String!) {
           signup(username: $username, email: $email, password: $password) {
@@ -40,11 +42,12 @@ export class SignupComponent {
       `,
       variables: body
     }).subscribe((response: any) => {
-      if (response.data.signup.status) {
+      if (response.data && response.data.signup.status && response.data.signup.message === "User registered successfully") {
         localStorage.setItem('user', JSON.stringify(response.data.signup.user));
-        this.router.navigate(['/employees']);
+        //this.router.navigate(['/employees']);
       } else {
-        alert(response.data.signup.message);
+        console.log(response);
+        this.errorMessage = response.errors[0].message;
       }
     });
   }
