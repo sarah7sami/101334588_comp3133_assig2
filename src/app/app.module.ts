@@ -11,6 +11,8 @@ import { ApolloModule, Apollo } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
 import { InMemoryCache } from '@apollo/client/core';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,14 +20,16 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
     AppComponent,
     SignupComponent,
     LoginComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    AddEmployeeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ApolloModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
