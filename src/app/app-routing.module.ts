@@ -7,6 +7,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { ViewEmployeeComponent } from './view-employee/view-employee.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'employees', component: EmployeeListComponent },
   { path: 'add-employee', component: AddEmployeeComponent },
   {path: 'update-employee/:id', component: UpdateEmployeeComponent}, 
-  {path: 'view-employee/:id', component: ViewEmployeeComponent}
+  {path: 'view-employee/:id', component: ViewEmployeeComponent},
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
