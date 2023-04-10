@@ -1,1 +1,38 @@
-<p>view-employee works!</p>
+<div class="container mt-5">
+    <div class="col">
+      <h2>View Employee</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            Employee Information
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <tr>
+                <td>First Name:</td>
+                <td>{{ employee.first_name }}</td>
+              </tr>
+              <tr>
+                <td>Last Name:</td>
+                <td>{{ employee.last_name }}</td>
+              </tr>
+              <tr>
+                <td>Email:</td>
+                <td>{{ employee.email }}</td>
+              </tr>
+              <tr>
+                <td>Gender:</td>
+                <td>{{ employee.gender }}</td>
+              </tr>
+              <tr>
+                <td>Salary:</td>
+                <td>{{ employee.salary }}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

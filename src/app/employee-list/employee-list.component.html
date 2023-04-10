@@ -22,7 +22,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let employee of employees">
-              <td><a [routerLink]="['/employee-details', employee.id]">{{employee.first_name}}</a></td>
+              <td><a [routerLink]="['/view-employee', employee.id]">{{employee.first_name}}</a></td>
               <td>{{employee.last_name}}</td>
               <td>{{employee.email}}</td>
               <td>{{employee.gender}}</td>
