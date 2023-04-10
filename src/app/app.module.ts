@@ -14,6 +14,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { ViewEmployeeComponent } from './view-employee/view-employee.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
     LoginComponent,
     EmployeeListComponent,
     AddEmployeeComponent,
-    UpdateEmployeeComponent
+    UpdateEmployeeComponent,
+    ViewEmployeeComponent
   ],
   imports: [
     BrowserModule,
