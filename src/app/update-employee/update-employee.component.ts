@@ -129,8 +129,10 @@ export class UpdateEmployeeComponent implements OnInit {
             this.message = response.message;
             // redirect to employees list
             
-            this.router.navigate(['/employees']);
-            location.reload();
+            this.router.navigate(['/employees'])
+            .then(() => {
+              window.location.reload();
+            });
           } else {
             this.message = response.message;
             this.warningMessage = response.message;
