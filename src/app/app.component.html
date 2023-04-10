@@ -1,2 +1,6 @@
 
+
+<div class="d-flex justify-content-end me-3">
+    <button *ngIf="isLoggedIn" class="btn btn-outline-secondary ml-auto mt-2 mr-2" (click)="logout()">Logout</button>
+</div>
 <router-outlet></router-outlet>
