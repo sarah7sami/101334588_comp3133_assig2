@@ -13,6 +13,7 @@ import { InMemoryCache } from '@apollo/client/core';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SignupComponent,
     LoginComponent,
     EmployeeListComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    UpdateEmployeeComponent
   ],
   imports: [
     BrowserModule,

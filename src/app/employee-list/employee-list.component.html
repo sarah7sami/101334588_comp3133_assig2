@@ -28,8 +28,8 @@
               <td>{{employee.gender}}</td>
               <td>{{employee.salary | currency:'CAD':true}}</td>
               <td>
-                <button class="btn btn-sm btn-danger me-2" (click)="deleteEmployee(employee._id)">Delete</button>
-                <button class="btn btn-sm btn-warning" [routerLink]="['/edit-employee', employee._id]">Edit</button>
+                <button class="btn btn-sm btn-danger me-2" (click)="deleteEmployee(employee.id)">Delete</button>
+                <button class="btn btn-sm btn-warning" [routerLink]="['/update-employee', employee.id]">Edit</button>
               </td>
             </tr>
           </tbody>

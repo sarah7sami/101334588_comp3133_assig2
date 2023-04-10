@@ -1,0 +1,58 @@
+<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+  </div>
+  <div *ngIf="warningMessage" class="alert alert-warning" role="alert">
+    {{ warningMessage }}
+  </div>
+  
+  <div class="container mt-5">
+    <div class="col">
+      <h2>Edit Employee Details</h2>
+    </div>
+      <form [formGroup]="editEmployeeForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mt-3">
+          <label for="first_name">First Name</label>
+          <input type="text" class="form-control" formControlName="first_name" id="first_name" required>
+          <div *ngIf="editEmployeeForm.controls.first_name.invalid && (editEmployeeForm.controls.first_name.dirty || editEmployeeForm.controls.first_name.touched)" class="text-danger">
+            <div *ngIf="editEmployeeForm.controls.first_name.hasError('required')">First Name is required.</div>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <label for="last_name">Last Name</label>
+          <input type="text" class="form-control" formControlName="last_name" id="last_name" required>
+          <div *ngIf="editEmployeeForm.controls.last_name.invalid && (editEmployeeForm.controls.last_name.dirty || editEmployeeForm.controls.last_name.touched)" class="text-danger">
+            <div *ngIf="editEmployeeForm.controls.last_name.hasError('required')">Last Name is required.</div>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" formControlName="email" id="email" required>
+          <div *ngIf="editEmployeeForm.controls.email.invalid && (editEmployeeForm.controls.email.dirty || editEmployeeForm.controls.email.touched)" class="text-danger">
+            <div *ngIf="editEmployeeForm.controls.email.hasError('required')">Email is required.</div>
+            <div *ngIf="editEmployeeForm.controls.email.hasError('mail')">Invalid email address.</div>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <label for="gender">Gender</label>
+          <select class="form-control" formControlName="gender" id="gender" required>
+            <option value="" disabled selected>Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          <div *ngIf="editEmployeeForm.controls.gender.invalid && (editEmployeeForm.controls.gender.dirty || editEmployeeForm.controls.gender.touched)" class="text-danger">
+            <div *ngIf="editEmployeeForm.controls.gender.hasError('required')">Gender is required.</div>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <label for="salary">Salary</label>
+          <input type="number" class="form-control" formControlName="salary" id="salary" required>
+          <div *ngIf="editEmployeeForm.controls.salary.invalid && (editEmployeeForm.controls.salary.dirty || editEmployeeForm.controls.salary.touched)" class="text-danger">
+            <div *ngIf="editEmployeeForm.controls.salary.hasError('required')">Salary is required.</div>
+            <div *ngIf="editEmployeeForm.controls.salary.hasError('min')">Salary cannot be negative.</div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4" [disabled]="!editEmployeeForm.valid">Submit</button>
+      </form>
+    </div>
+    
